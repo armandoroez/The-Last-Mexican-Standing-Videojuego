@@ -1,0 +1,920 @@
+//Pantalla 1
+
+int xRect,yRect;
+color cuadro = color(0);
+color cuadrohistoria = color (0);
+color cuadrohistoria2 = color (250);
+int anchoRect, largoRect;
+int textoCuadro=95;
+int x,y;
+int pantalla1;
+int pantalla;
+int eleccion =0;
+int eleccion2=0;
+float Vida1=450;
+float Vida2=450;
+float ataque = random(20,50);
+float ataque2 = 0;
+int clicAquiX= 750;
+int clicAquiY =750;
+int clicAquiColor= color(255);
+int vidaColor = 255;
+int vidaColor2 = 120;
+
+class Personajes{
+
+int imagen;
+
+
+Personajes(int imagen_){
+imagen = imagen_;
+}
+
+
+void display(){
+  switch(imagen){
+    case 0:
+  pushMatrix(); //SERAFIN
+  //ALAS
+translate(0,50);
+stroke(7);
+fill(200);
+beginShape();
+vertex(180, 320);
+vertex(63, 386);
+bezierVertex(63, 386, 40, 211, 140, 249);
+bezierVertex(242, 188, 180, 330, 180, 330);
+endShape();
+strokeWeight(7);
+beginShape();
+vertex(240, 320);
+vertex(357, 386);
+bezierVertex(357, 386, 380, 211,280, 249);
+bezierVertex(302, 188, 240, 330, 240, 330);
+
+
+endShape();
+  //CABEZA
+  fill(#FCDFBF); 
+  rect(210,200,180,200,20);
+  fill(0);
+  ellipse(165,180,20,20);
+  fill(0);
+  ellipse(255,180,20,20);
+  line(150, 155, 190, 185);
+  line(230, 185, 270,155);
+  strokeWeight(7);
+  fill(#FFAABF);
+  ellipse(210,220,40,20);
+  noFill();
+  bezier(160, 275,160, 280, 180, 200, 250, 275);
+
+  
+  //CUERPO
+  beginShape();
+  fill(#3D47BF);
+vertex(145,300);
+vertex(280, 300);
+vertex(340, 340);
+vertex(340, 390);
+vertex(305,390);
+vertex(305, 355);//6
+vertex(280, 340);
+vertex(280, 420);
+vertex(300,440);
+vertex(235, 440);
+vertex(235, 410);
+vertex(190, 410);
+vertex(190, 440);
+vertex(130,440);
+vertex(145,420);
+vertex(145,340);
+vertex(120,355);
+vertex(120,390);
+vertex(85, 390);
+vertex(85, 340);
+endShape(CLOSE);
+fill(#FCDFBF);
+ellipse(322.5,390, 40,40);
+fill(#FCDFBF);
+ellipse(103,390, 40,40);
+
+//CABELLO
+beginShape();
+fill(0);
+vertex(120,220);
+vertex(100,150);
+bezierVertex(100, 150, 100,100,150,80);
+bezierVertex(150,80, 270,40, 280,100);
+bezierVertex(280,100,340,80,300,220);
+bezierVertex(300,220, 310,80, 230,120);
+bezierVertex(230,120, 240, 135, 220,160);
+bezierVertex(220,160, 230,100, 120,125);
+endShape(CLOSE);
+  popMatrix();
+  
+  
+  break;
+  case 1:
+  
+  
+  pushMatrix(); //AMLOBOT
+   //CABEZA
+   stroke(7);
+   translate(0,50);
+
+  fill(#C19263); 
+  ellipse(650, 200, 30, 50);
+  rect(740,200,180,200,20);
+  fill(0);
+  line(680,180,710,180);
+  fill(0);
+  line(720, 180, 680, 150);
+  noFill();
+  bezier(675, 190, 675, 200,715,200, 715, 190 );
+  noFill();
+  bezier(715, 210, 715, 240,765, 240, 765, 210);
+  bezier(690, 270, 690, 240, 790, 240, 790, 270);
+beginShape();
+fill(180);
+vertex(740, 190);
+vertex(830, 220);
+vertex(830, 100);
+vertex(740, 100);
+vertex(740,190);
+endShape();
+fill(255,0,0);
+ellipse(785, 160, 40,40);
+//CABELLO
+beginShape();
+fill(200);
+vertex(650,200);
+vertex(630, 130);
+bezierVertex(630, 130, 630, 80, 650, 70);
+bezierVertex(650, 70, 650, 50, 840, 70);
+bezierVertex( 840, 70, 840, 100, 830, 200);
+vertex(830,100);
+vertex(810,100);
+bezierVertex(810,100, 815, 150, 730, 100);
+bezierVertex(730, 100, 650, 80, 650,200);
+endShape();
+
+
+//CUERPO
+ beginShape();  //530
+  fill(#B2B296);
+vertex(675,300);
+vertex(810, 300);
+//TORSO
+vertex(810, 340);
+vertex(810, 390);
+vertex(675, 390);
+vertex(675,340);
+vertex(650,355);
+vertex(650,390);
+vertex(615, 390);
+vertex(615, 340);
+vertex(675, 300);
+endShape();
+//PIERNAS
+beginShape();
+fill(#683C1E);
+vertex(810, 390);
+vertex(810, 420);
+vertex(830,440);
+vertex(765, 440);
+vertex(765, 410);
+vertex(720, 410);
+vertex(720, 440);
+vertex(660,440);
+vertex(675, 420);
+vertex(675, 390);
+endShape(CLOSE);
+fill(#C19263);
+ellipse(633,390, 40,40);
+//BRAZO
+beginShape();
+fill(180);
+vertex(810, 300);
+vertex(850, 330);
+vertex(870, 310);
+vertex(930, 370);
+vertex(900,400);
+vertex(810, 330);
+vertex(810, 300);
+endShape();
+line(742.5, 300, 742.5, 390);
+  popMatrix();
+  
+  
+  
+  break;
+  case 2:
+  
+  
+  //WALTER MERCADO
+  //CABELLO
+  pushMatrix();
+  stroke(7);
+  translate(0,50);
+
+  beginShape();
+  fill(#FFE600);
+  vertex(1180, 260);
+  vertex(1140, 160);
+  bezierVertex(1140,160, 1120, 90, 1200,70);
+  bezierVertex(1200,70,1270, 30 ,1340,70);
+  bezierVertex(1340,70, 1400, 90 ,1400 ,160);
+  vertex(1360, 260);
+  endShape();
+  //CABEZA
+  fill(#FCDFBF); //1060   x mitad= 1270  y mitad= 200
+  rect(1270,200,180,200,20);
+  fill(0);
+  ellipse(1225,180,10,10);
+  fill(0);
+  ellipse(1315,180,10,10);
+  line(1200,170, 1210, 155);
+  line(1210, 155, 1250, 160);
+  line(1290, 160, 1330,155);
+  line(1330,155, 1340, 170);
+  line(1250, 220, 1270, 230);
+  line(1270, 230, 1290, 220);
+beginShape();
+fill(#A56F7E);
+vertex(1200,250);
+bezierVertex(1200, 250, 1270, 270, 1340, 250);
+vertex(1340,250);
+  bezierVertex(1340,250, 1270, 300, 1200,250);
+  endShape();
+bezier(1200, 245, 1220, 245, 1225, 234, 1225, 234);
+bezier(1340, 245, 1320, 245, 1315, 235, 1315, 235);
+fill(#FFB0C7);
+
+ellipse(1200,225,30,15); 
+ellipse(1340,225,30,15);
+
+//TORSO
+beginShape();  //530
+fill(#AF3FBC);
+vertex(1205,300);
+vertex(1340, 300);
+vertex(1400, 340);
+vertex(1400, 390);
+vertex(1365,390);
+vertex(1365, 355);//6
+vertex(1340, 340);
+vertex(1340, 420);
+vertex(1360,440);
+vertex(1295, 440);//10
+vertex(1295, 410);
+vertex(1250, 410);
+vertex(1250, 440);
+vertex(1190,440);
+vertex(1205,420);
+vertex(1205,340);
+vertex(1180,355);
+vertex(1180,390);
+vertex(1145, 390);
+vertex(1145, 340);
+vertex(1205, 300);
+endShape();
+
+//Piernas
+beginShape();
+fill(0);
+vertex(1340, 390);
+vertex(1340, 420);
+vertex(1360,440);
+vertex(1300, 440);
+vertex(1295, 410);
+vertex(1250, 410);
+vertex(1250, 440);
+vertex(1190,440);
+vertex(1205, 420);
+vertex(1205, 390);
+endShape(CLOSE);
+fill(#FCDFBF);
+ellipse(1382.5,390, 40,40);
+ellipse(1162.5, 390, 40,40);
+line(1272.5, 300, 1272.5, 390);
+fill(0);
+rect(1222.5,305, 35,10);
+rect(1317.5, 305,35,10);
+popMatrix();
+
+
+break;
+case 3:
+
+//FLOR 
+
+pushMatrix();
+stroke(7);
+fill(#0FFF46);
+ellipse(445,535,175,175);
+fill(#F2FF26);
+ellipse(320,608,175,175);
+fill(#FF2400);
+ellipse(360, 725, 170,170);
+fill(#2A0FFF);
+ellipse(560,610,175,175);
+fill(#A900F7);
+ellipse(510, 725, 175,175);
+//cuerpo
+beginShape();
+fill(#007B15);
+vertex(430,725);
+vertex(427,751);
+vertex(365,757);
+vertex(350, 790);
+vertex(370,770);
+vertex(425,765);
+vertex(423, 835);
+vertex(370, 835);
+vertex(360,875);
+vertex(343, 885);
+vertex(380,885);
+vertex(385, 850);
+vertex(485,850);
+vertex(484,880);
+vertex(532,880);
+vertex(517,870);
+vertex(513,840);
+vertex(450,835);
+vertex(447,767);
+vertex(500,767);
+vertex(530,805);
+vertex(507,750);
+vertex(445,747);
+vertex(445,723);
+vertex(430,725);
+endShape();
+//cara
+fill(255);
+ellipse(445, 640, 170,170);
+fill(0);
+ellipse(400,625,20,20);
+ellipse(490,625,20,20);
+beginShape();
+vertex(400,650);
+vertex(490,650);
+bezierVertex(490,650,490,680,445,690);
+bezierVertex(445,690, 400, 680, 400,650);
+endShape();
+popMatrix();
+
+
+break;
+case 4:
+
+
+//Torta de tamal
+pushMatrix();
+stroke(7);
+beginShape();
+fill(#FFD373);
+vertex(940,545);
+bezierVertex(940,545,950, 497,995,497);
+bezierVertex(995,497,1040,497,1050,545);
+bezierVertex(1050,545,1070,520,1100,540);
+bezierVertex(1100,540, 1150, 550,1133,680);
+bezierVertex(1133,680, 1130, 850,1050,805);
+bezierVertex(1050,805, 1045,850, 1000,850); 
+bezierVertex(1000,850, 950, 850,940,805);
+bezierVertex(940,805,930, 835,910,825);
+bezierVertex(910,825, 870, 800,870,770);
+bezierVertex(870,770,850, 570,890,540);
+bezierVertex(890,540,915, 530,940,545);
+endShape();
+line(940,561,940,630);
+line(941, 650, 940,705);
+line(1055,561,1055,630);
+line(1055, 650, 1055,705);
+fill(0);
+ellipse(950,743,20,20);
+ellipse(1040,743,20,20);
+line(935,715,973,743);
+line(1013,743,1070,714);
+line(915,790,927,768);
+line(927,768,1070,770);
+line(1070,770,1080,785);
+line(824,795,837,758);
+line(837,758,872,772);
+line(1122,766, 1158,754);
+line(1158, 754, 1171,793);
+line(938,804,938,870);
+line(938,870,893,870);
+line(1058,811,1058,870);
+line(1058,870,1109,870);
+popMatrix();
+break;
+}
+}
+}
+  
+  
+Personajes serafin;
+Personajes AMLObot;
+Personajes Walter;
+Personajes Vivesindrogas;
+Personajes Tortadetamal;
+ 
+import processing.sound.*;
+SoundFile file;
+
+
+void setup(){
+size(1500,900);
+background(255);
+xRect=750;
+yRect=750;
+ file = new SoundFile(this, "Mexican National Anthem (8-bit remix).mp3");
+  file.play();
+  file.loop();
+frameRate(60);
+
+
+  serafin = new Personajes (0);
+  AMLObot = new Personajes(1);
+  Walter = new Personajes (2);
+  Vivesindrogas = new Personajes (3);
+  Tortadetamal = new Personajes (4);
+}
+
+void draw(){
+  switch (pantalla){
+  case 0:
+
+  rectMode(CENTER);
+fill(160,0,0);
+noStroke();
+rect(250,450,500,900);
+fill(200);
+noStroke();
+rect(750,450,500,900);
+noStroke();
+fill(0,157,0);
+rect(1250,450,500,900);
+PFont font;
+font = loadFont("WarisOver-100.vlw");
+textFont(font);
+textSize(40);
+textAlign(CENTER);
+fill(100);
+text("SOLO LOS MAS RAROS PUEDEN SALVAR A MEXICO", 750,100);
+textSize(100);
+textAlign(CENTER);
+fill(0);
+text("THE LAST MEXICAN", 750, 250); 
+textSize(400);
+textAlign(CENTER);
+fill(0);
+text("STANDING", 750, 600); 
+jugar();
+mouseSobreCuadro();
+historia();
+mouseSobreCuadroHistoria();
+
+
+
+
+break;
+case 1:
+
+
+
+background(140,0,0);
+font = loadFont("WarisOver-100.vlw");
+textFont(font);
+textSize(60);
+textAlign(CENTER);
+fill(255);
+text("ESCOGE A TU PERSONAJE PERTURBADOR", 750, 60); 
+textSize(45);
+textAlign(CENTER);
+fill(140);
+text("EL PRIMER MORRO ESCOGE CON UNA LETRA Y EL OTRO CON UN NUMERO", 750, 104); 
+textSize(60);
+textAlign(CENTER);
+fill(255);
+textSize(35);
+textAlign(CENTER);
+fill(250);
+text("A - SERAFIN - 1", 220, 530); 
+textSize(35);
+textAlign(CENTER);
+fill(250);
+text("S - AMLOBOT - 2", 740, 530); 
+textSize(35);
+textAlign(CENTER);
+fill(250);
+text("D - WALTER MERCADO - 3", 1270, 530); 
+textSize(35);
+textAlign(CENTER);
+fill(250);
+text("F - EL 'VIVE SIN DROGAS' - 4", 450, 870); 
+textSize(35);
+textAlign(CENTER);
+fill(250);
+text("G - TORTA DE TAMAL - 5", 1000, 870); 
+scale(0.8);
+pushMatrix();
+translate(60,100);
+serafin.display();
+popMatrix();
+pushMatrix();
+translate(190,100);
+AMLObot.display();
+popMatrix();
+pushMatrix();
+translate(320,100);
+Walter.display();
+popMatrix();
+pushMatrix();
+translate(140,150);
+Vivesindrogas.display();
+popMatrix();
+pushMatrix();
+translate(250,150);
+Tortadetamal.display();
+popMatrix();
+cambioPantalla2();
+seleccionPersonaje();
+break;
+
+
+case 2:
+
+background(140,0,0);
+
+  pushMatrix();
+  
+  noStroke();
+rectMode(CENTER);
+
+fill(0,2);
+rect(340, 400, 180, 500);
+fill(0,2);
+rect(1000, 360, 170, 510); 
+fill(0,1);
+rect(1150, 350, 170, 550);
+fill(0,1);
+rect(250, 350, 180, 500);
+rect(1450, 400, 180, 400);
+rect(500, 350, 170, 550);
+fill(0,1);
+rect(600, 350, 170, 500);
+fill(0,2);
+rect(700, 500, 170,400);
+fill(0);
+rect(115,350,200,600);
+pushMatrix();
+rotate(100);
+translate(5,5);
+rect(200, 700, 225, 550);
+popMatrix();
+rect(1300,400,200,500);
+fill(29);
+rect(750, 750, 1500, 300);
+fill(0,1);
+rect(800, 420, 160, 390);
+popMatrix();
+font = loadFont("WarisOver-48.vlw");
+textFont(font);
+textSize(150);
+textAlign(CENTER);
+fill(255);
+text("- VS -", 750,150);
+fill(140);
+textSize(50);
+text("EL QUE PIERDA DEBE LAS CHEVES", 750,220);
+seleccionPersonaje1();
+seleccionPersonaje2();
+
+vidaPersonaje1();
+vidaPersonaje2();
+fill(255,0,0);
+text("JUGADOR UNO ATACA CON LA 'Z'", 30,850);
+fill(255,0,0);
+text("JUGADOR 2 ATACA CON EL 7", 1050,850);
+//cambioPantallaEnd();
+
+
+break;
+case 3:
+
+
+background(0);
+/*fill(0);
+rect(width/2, height/2, 1500,900);*/
+font = loadFont("AnotherDangerDemo-48.vlw");
+textFont(font);
+textSize(300);
+textAlign(CENTER);
+fill(180,0,0);
+text("FATALITY", 775,340);
+
+font= loadFont("WarisOver-48.vlw");
+textFont(font);
+textSize(50);
+textAlign(CENTER);
+fill(150);
+text("YA TE FREGARON CUATE", 750,580);
+
+
+textSize(80);
+textAlign(CENTER);
+fill(clicAquiColor);
+text("HAZ CLIC AQUI PARA CALARLE OTRA VEZ", clicAquiX,clicAquiY);
+clicPantalla3();
+perdedor();
+
+
+break;
+case 4:
+
+
+  pushMatrix();
+background(0);
+font = loadFont("WarisOver-48.vlw");
+textFont(font);
+textSize(40);
+textAlign(CENTER);
+fill(140);
+text("MEXICO, 2500. UN CHEF URBANO ORIGINARIO DE LA CIUDAD DE MEXICO DA VIDA A UN NUEVO PLATILLO\n", 750,220);
+text("QUE SERVIRA EN SU AFAMADO CARRITO FUERA DE LA CENTRAL DE ABASTOS. LA TORTA DE RATATOUILLE.", 750,270);
+text("AL ENTERARSE DE ESTO EL GOBIERNO FRANCES, DECIDEN DECLARAR COMO ENEMIGO DE GUERRA A DICHO CHEF", 750,320);
+text("POR CREAR 'UN INSULTO A LA GASTRONOMIA FRANCESA',", 750,370);
+textSize(70);
+fill(250);
+text("PERO MEXICO NO SE VA A DEJAR.", 750,450);
+textSize(40);
+fill(140);
+text("DEBIDO A ESTO, COMIENZA LA SEGUNDA GUERRA DE LOS PASTELES, LO QUE DESTRUYE EL SISTEMA", 750,500);
+text(" DE GOBIERNO EN EL PAIS. LA NACION SE HUNDE EN LA ANARQUIA, LA VIOLENCIA Y EL CAOS.", 750,550);
+text("SE FORMAN CINCO BANDOS LIDERADOS POR LOS PERSONAJES MAS PERTURBADORES", 750,600);
+text("CREADOS POR LA SOCIEDAD MEXICANA, Y SOLO UNO DE ELLOS SE QUEDARA CON EL MANDO DE MEXICO.", 750,650);
+fill(250);
+textSize(110);
+text("QUE GANE EL MAS FREGON", 750,800);
+
+fill(cuadrohistoria2);
+rect(150,90,220,100);
+fill(0);
+textSize(50);
+text("PA TRAS", 150,110);
+popMatrix();
+mouseSobreCuadroHistoria2();
+break;
+} 
+}
+
+void jugar(){
+  fill(cuadro);
+  rectMode(CENTER);
+  rect(750, 750, anchoRect, largoRect);
+  
+  textSize(textoCuadro);
+  textAlign(CENTER);
+  fill(255);
+  text("ORALE VAS", 750,780);
+}
+
+void historia(){ 
+  fill(cuadrohistoria);
+  rectMode(CENTER);
+  rect(750, 865, 350, 60);
+  
+  textSize(40);
+  textAlign(CENTER);
+  fill(255);
+  text("HISTORIA", 750,880);
+}
+
+void mouseSobreCuadro(){
+  if (mouseX>xRect-225 && mouseX<xRect+225 && mouseY > yRect-100 && mouseY<yRect+100){
+  cuadro = color(255,0,0);}
+  if (mouseX>xRect-225 && mouseX<xRect+225 && mouseY > yRect-100 && mouseY<yRect+100){
+    anchoRect=450;}
+if (mouseX>xRect-225 && mouseX<xRect+225 && mouseY > yRect-100 && mouseY<yRect+100){
+  largoRect=200;}
+if (mouseX>xRect-225 && mouseX<xRect+225 && mouseY > yRect-100 && mouseY<yRect+100){
+  textoCuadro=95;
+}
+
+else
+cuadro=color(0);
+largoRect=150;
+anchoRect=350;
+textoCuadro=70;
+
+if (mousePressed==true &&mouseX>xRect-225 && mouseX<xRect+225 && mouseY > yRect-100 && mouseY<yRect+100){
+pantalla=1;
+}
+}
+
+
+
+void mouseSobreCuadroHistoria(){
+ if (mouseX> 575&& mouseX<925 && mouseY >835 && mouseY<895){
+  cuadrohistoria = color(0,255,0);}
+  else cuadrohistoria=0;
+  
+  if (mousePressed==true && mouseX> 575&& mouseX<925 && mouseY >835 && mouseY<895){
+  pantalla=4;
+cuadrohistoria=0;  }
+
+}
+
+
+void mouseSobreCuadroHistoria2(){
+ if (mouseX> 40&& mouseX<260 && mouseY >40 && mouseY<140){
+  cuadrohistoria2 = color(0,255,0);}
+  else cuadrohistoria2=250;
+  
+  if (mousePressed==true && mouseX> 40&& mouseX<260 && mouseY >40 && mouseY<140){
+  pantalla=0;
+  cuadrohistoria2=0;
+  }
+}
+
+void seleccionPersonaje()
+{
+if (key=='a'){eleccion=1;}
+if (key=='s'){eleccion=2;}
+if (key=='d'){eleccion=3;}
+if (key=='f'){eleccion=4;}
+if (key=='g'){eleccion=5;}
+  
+if (key=='1'){eleccion2=1;}
+if (key=='2'){eleccion2=2;}
+if (key=='3'){eleccion2=3;}
+if (key=='4'){eleccion2=4;}
+if (key=='5'){eleccion2=5;}}
+
+void seleccionPersonaje1(){
+switch(eleccion){
+  case 1:
+  pushMatrix();
+  translate(150, 150);
+  serafin.display();
+popMatrix();
+break;
+case 2:
+pushMatrix();
+translate(-400, 150);
+AMLObot.display();
+popMatrix();
+break;
+
+case 3:
+pushMatrix();
+translate(-900,150);
+Walter.display();
+popMatrix();
+break;
+
+case 4:
+pushMatrix();
+translate(-100,-220);
+Vivesindrogas.display();
+popMatrix();
+break;
+
+case 5:
+pushMatrix();
+translate(-600,-220);
+Tortadetamal.display();
+popMatrix();
+break;
+}
+}
+
+void seleccionPersonaje2(){
+switch(eleccion2){
+  case 1:
+  pushMatrix();
+  translate(850,150);
+  serafin.display();
+popMatrix();
+break;
+case 2:
+pushMatrix();
+translate(350,150);
+AMLObot.display();
+popMatrix();
+break;
+
+case 3:
+pushMatrix();
+translate(-200,150);
+Walter.display();
+popMatrix();
+break;
+
+case 4:
+pushMatrix();
+translate(630,-220);
+Vivesindrogas.display();
+popMatrix();
+break;
+
+case 5:
+pushMatrix();
+translate(100,-220);
+Tortadetamal.display();
+popMatrix();
+break;
+}
+}
+
+void cambioPantalla2(){
+if ((eleccion!=0) && (eleccion2!=0)){
+pantalla=2;
+}
+
+}
+
+void vidaPersonaje1(){
+  pushMatrix();
+  rectMode(CORNER);
+  noStroke();
+  fill(vidaColor);
+rect(50,40,Vida1,50);
+textSize(40);
+  textAlign(CORNER);
+  fill(vidaColor);
+  text("JUGADOR 1", 50,130);
+popMatrix();
+}
+
+void vidaPersonaje2(){
+  pushMatrix();
+  rectMode(CORNER);
+  noStroke();
+  fill(vidaColor2);
+rect(1000,40,Vida2,50);
+textSize(40);
+  textAlign(CORNER);
+  fill(vidaColor2);
+  text("JUGADOR 2", 1300,130);
+popMatrix();
+}
+
+
+void keyPressed(){
+  if (pantalla==2){
+  if(key=='z'){
+Vida2= Vida2-ataque;
+vidaColor=120;
+vidaColor2=255;
+ataque=0;
+ataque2=random(20,50);
+}
+
+
+if(key=='7'){
+Vida1=Vida1-ataque2;
+vidaColor=255;
+vidaColor2=120;
+ataque2=0;
+ataque=random(20,50);
+}
+
+if (Vida1<0){
+  pantalla=3;
+}
+if(Vida2<0){
+pantalla=3;
+}
+}}
+
+void perdedor(){
+if (Vida1<0){
+textSize(40);
+  textAlign(CENTER);
+  fill(255,0,0);
+  text("JUGADOR 1 IS DEAD", 750,520);
+}
+if (Vida2<0){
+textSize(40);
+  textAlign(CENTER);
+  fill(255,0,0);
+  text("JUGADOR 2 IS DEAD", 750,520);
+}
+}
+void clicPantalla3(){
+if (mouseX>clicAquiX-600 && mouseX<clicAquiX+600 && mouseY > clicAquiY-100 && mouseY<clicAquiY+100){
+  clicAquiColor= color(255,0,0);
+}
+else clicAquiColor=color(255);
+
+if (mousePressed==true && mouseX>clicAquiX-600 && mouseX<clicAquiX+600 && mouseY > clicAquiY-100 && mouseY<clicAquiY+100){
+  pantalla=0;
+  Vida1=450;
+  Vida2=450;
+  eleccion=0;
+  eleccion2=0;
+}
+}
